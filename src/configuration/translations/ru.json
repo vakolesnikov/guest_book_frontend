@@ -1,0 +1,40 @@
+{
+  "profileFields": {
+    "email": "Email",
+    "phone": "Телефон",
+    "age": "Возраст",
+    "work": "Работа"
+  },
+  "authorizationForm": {
+    "login": "Войти",
+    "authorization": "Авторизация",
+    "userName": "Имя пользователя",
+    "password": "Пароль"
+  },
+  "posts": {
+    "sectionName": "Сообщения",
+    "newMessage": "Новое сообщение",
+    "warningMessages": {
+      "info": "Максимальная длина сообщения ограничена. Использованно: {{count}} из {{maxCount}} символов",
+      "warning": "Введено максимальное число символов ({{maxCount}})"
+    },
+    "filters": {
+      "userName":"Логин",
+      "firstName": "Имя",
+      "lastName": "Фамилия",
+      "startDate": "Начальная дата",
+      "endDate": "Конечная дата",
+      "set": "Применить",
+      "clear": "Очистить"
+    }
+  },
+  "notification": {
+    "loginSuccess": "Успешная авторизация",
+    "createMessageSuccess":"Сообщение успешно отправлено"
+  },
+  "logout": "Выйти из аккаунта",
+  "profile": "Профиль",
+  "guestBook": "Гостевая книга",
+  "messageList": "Список сообщений:",
+  "filters": "Фильтрация"
+}
