@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, memo } from 'react';
 import {
   Box,
   Grid,
@@ -16,7 +16,7 @@ interface IPostsListPros {
   disabledUserLink?: boolean,
 }
 
-export const PostsList = ({
+export const PostsList = memo(({
   posts,
   isFetching,
   totalCount,
@@ -60,4 +60,4 @@ export const PostsList = ({
       </Grid>
     </Box>
   );
-};
+});

@@ -1,9 +1,10 @@
-import React, { useContext, useCallback, useState } from 'react';
+import React, {
+  useContext, useCallback, useState,
+} from 'react';
 import {
   Container,
   Divider,
   Box,
-  Grid,
   Typography,
 } from '@mui/material';
 import { usePaginationFilters, usePostsFilters, useFetchPosts } from 'hooks/index';
@@ -21,11 +22,14 @@ const Posts: React.FC = () => {
   const handleCloseCreateForm = useCallback(() => setIsShowCreateForm(false), []);
   const handleShowFilters = useCallback(() => setIsShowFilters(true), []);
   const handleCloseFilters = useCallback(() => setIsShowFilters(false), []);
-
   const pagination = usePaginationFilters({ page: 1, pageSize: 5 });
   const { filters, setFilters, clearFilters } = usePostsFilters();
   const { page, pageSize, setPage } = pagination;
   const { data, isFetching, refetchPosts } = useFetchPosts({ page, pageSize }, filters);
+  const handleAfterCreatePost = useCallback(() => {
+    setPage(1);
+    refetchPosts();
+  }, []);
   const { result, meta: { totalCount } } = data;
 
   return (
@@ -57,12 +61,14 @@ const Posts: React.FC = () => {
         pagination={pagination}
       />
 
+      { isShowCreateForm && (
       <CreatePost
         isOpen={isShowCreateForm}
         profile={profile}
         onClose={handleCloseCreateForm}
-        onAfterSubmit={refetchPosts}
+        onAfterSubmit={handleAfterCreatePost}
       />
+      )}
     </Container>
   );
 };

@@ -1,4 +1,6 @@
-import { useState, useCallback, useEffect } from 'react';
+import {
+  useState, useCallback, useEffect, useMemo,
+} from 'react';
 import { useQuery } from 'react-query';
 import { AxiosResponse } from 'axios';
 import { getPosts, getUser } from 'api/index';
@@ -25,9 +27,9 @@ export const usePaginationFilters = ({ page: initialPage, pageSize: initialPageS
   const [page, setPage] = useState(initialPage);
   const [pageSize, setPageSize] = useState(initialPageSize);
 
-  return {
+  return useMemo(() => ({
     page, pageSize, setPage, setPageSize,
-  };
+  }), [page, pageSize]);
 };
 
 export const usePostsFilters = () => {
@@ -40,11 +42,11 @@ export const usePostsFilters = () => {
     })),
     [],
   );
-  const clearFilters = () => setPostFilters({});
+  const clearFilters = useCallback(() => setPostFilters({}), []);
 
-  return {
+  return useMemo(() => ({
     setFilters, clearFilters, filters,
-  };
+  }), [filters]);
 };
 
 export const useFetchPosts = (pagination: IPostsPagination, filters?: IPostsFilters) => {

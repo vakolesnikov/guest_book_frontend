@@ -35,6 +35,7 @@
     "no-underscore-dangle": 0,
     "@typescript-eslint/naming-convention": 0,
     "react/jsx-no-duplicate-props": 0,
-    "react/require-default-props": 0
+    "react/require-default-props": 0,
+    "linebreak-style": 0
   }
 }

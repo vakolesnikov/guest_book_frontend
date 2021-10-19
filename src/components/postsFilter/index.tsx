@@ -1,4 +1,4 @@
-import React, { Dispatch, useState } from 'react';
+import React, { Dispatch, useState, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   Drawer,
@@ -29,7 +29,7 @@ interface IPostsFilterProps {
 
 type ConfigItemName = 'userName' | 'firstName' | 'lastName' | 'startDate' | 'endDate';
 
-export const PostsFilter:React.FC<IPostsFilterProps> = ({
+export const PostsFilter:React.FC<IPostsFilterProps> = memo(({
   open,
   onClose,
   setFilters,
@@ -131,4 +131,4 @@ export const PostsFilter:React.FC<IPostsFilterProps> = ({
       </Box>
     </Drawer>
   );
-};
+});

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import {
   Box,
@@ -14,7 +14,7 @@ interface IPostsControlPanel {
   onShowFilters: () => void,
 }
 
-export const PostsControlPanel = ({ onShowCreateForm, onShowFilters }:IPostsControlPanel) => {
+export const PostsControlPanel = memo(({ onShowCreateForm, onShowFilters }:IPostsControlPanel) => {
   const { t } = useTranslation();
   return (
     <Box p={2}>
@@ -33,4 +33,4 @@ export const PostsControlPanel = ({ onShowCreateForm, onShowFilters }:IPostsCont
       </Grid>
     </Box>
   );
-};
+});

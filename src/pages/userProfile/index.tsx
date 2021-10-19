@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useParams, Link } from 'react-router-dom';
 import {
@@ -15,7 +15,7 @@ import {
   Divider,
 } from '@mui/material';
 import { UserAvatar } from 'components/userAvatar';
-import { useFetchPosts, useFetchUser, usePaginationFilters } from 'hooks/index';
+import { useFetchUser } from 'hooks/index';
 import { IProfile } from 'types/index';
 import { URLS } from 'configuration/routes';
 
@@ -33,14 +33,7 @@ const StyledLink = styled(Link)({
 const UserProfile: React.FC = () => {
   const { t } = useTranslation();
   const { id } = useParams<IPathParams>();
-  const pagination = usePaginationFilters({ page: 1, pageSize: 5 });
-  const { page, pageSize } = pagination;
   const { user, isFetching } = useFetchUser({ id });
-  const postsFilters = useMemo(() => ({ userName: user.userName }), [user.userName]);
-  const {
-    data: { result: posts, meta: { totalCount } },
-    isFetching: isPostsFetching,
-  } = useFetchPosts({ page, pageSize }, postsFilters);
 
   const {
     userName,

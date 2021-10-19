@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Avatar } from '@mui/material';
 import { stringToColor } from 'utils/index';
 
@@ -8,8 +8,8 @@ interface IUserAvatar {
   height?: number,
 }
 
-export const UserAvatar = ({ width, height, name }:IUserAvatar) => (
+export const UserAvatar = memo(({ width, height, name }:IUserAvatar) => (
   <Avatar sx={{ width, height, bgcolor: stringToColor(name) }}>
     {name.charAt(0).toUpperCase()}
   </Avatar>
-);
+));

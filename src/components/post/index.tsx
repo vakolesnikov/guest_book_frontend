@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import {
   Card,
   CardHeader,
@@ -22,7 +22,7 @@ const StyledTypography = styled(Typography)({
   wordBreak: 'break-word',
   fontSize: '1rem',
 });
-export const Post: React.FC<IPostProps> = ({
+export const Post: React.FC<IPostProps> = memo(({
   creatingDate,
   messageText,
   userId,
@@ -62,4 +62,4 @@ export const Post: React.FC<IPostProps> = ({
       </Card>
     </Grid>
   );
-};
+});
