@@ -57,6 +57,7 @@ export const useFetchPosts = (pagination: IPostsPagination, filters?: IPostsFilt
     () => getPosts(pagination, filters),
     {
       refetchInterval: 30000,
+      refetchOnWindowFocus: false,
       initialData: { data: { meta: { totalCount: 0 }, result: [] } } as AxiosResponse<IGetPostsResponse>,
     },
   );
@@ -77,6 +78,7 @@ export const useFetchUser = ({ id, onError, onSuccess }: IFetchUserProps): IFetc
       initialData: { data: {} } as AxiosResponse<IProfile>,
       onError,
       onSuccess,
+      refetchOnWindowFocus: false,
     },
   );
 

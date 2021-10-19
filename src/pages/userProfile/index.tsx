@@ -14,7 +14,6 @@ import {
   styled,
   Divider,
 } from '@mui/material';
-import { PostsList } from 'components/postsList';
 import { UserAvatar } from 'components/userAvatar';
 import { useFetchPosts, useFetchUser, usePaginationFilters } from 'hooks/index';
 import { IProfile } from 'types/index';
@@ -91,19 +90,6 @@ const UserProfile: React.FC = () => {
         </List>
         <Divider />
       </Box>
-      <Box pl={2}>
-        <Typography variant="h5">
-          {t('messageList')}
-        </Typography>
-      </Box>
-      <PostsList
-        posts={posts}
-        isFetching={isPostsFetching}
-        totalCount={totalCount}
-        pagination={pagination}
-        disabledUserLink
-      />
-
     </Container>
   );
 };
